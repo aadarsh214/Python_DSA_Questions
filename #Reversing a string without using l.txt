@@ -1,0 +1,8 @@
+#Reversing a string without using loop
+
+def my_function	(x):
+     return x[::-1]
+
+mytxt = my_function("Yeah Man")
+
+print(mytxt)
