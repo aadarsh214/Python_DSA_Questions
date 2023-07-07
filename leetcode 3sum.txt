@@ -1,0 +1,20 @@
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        res = []
+        nums.sort()
+        for targ_idx, target in enumerate(nums):
+            if target > 0: break
+            if targ_idx > 0 and target == nums[targ_idx - 1]: continue
+            l, r = targ_idx+1, len(nums)-1
+            while l < r:
+                if (sum:=nums[l]+nums[r]) > -target:
+                    r-=1
+                elif sum < -target:
+                    l+=1
+                else:
+                    res.append([target, nums[l], nums[r]])
+                    l+=1
+                    r-=1
+                    while nums[l] == nums[l-1] and l < r:
+                        l+=1
+        return res
